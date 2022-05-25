@@ -5,6 +5,7 @@ import { AuthContextComponent } from './AuthContext';
 import Signup from './Pages/Signup';
 import Login from './Pages/Login';
 import Home from './Pages/Home';
+import PrivateRoute from './Components/PrivateRoute';
 import Logout from './Pages/Logout';
 import MyBookmarks from './Pages/MyBookmarks';
 import AddBookmark from './Pages/AddBookmark';
@@ -17,9 +18,10 @@ const App = () => {
                 <Route exact path='/' component={Home} />
                 <Route exact path='/signup' component={Signup} />
                 <Route exact path='/login' component={Login} />
-                <Route exact path='/logout' component={Logout} />
-                <Route exact path='/mybookmarks' component={MyBookmarks} />
-                <Route exact path='/addbookmark' component={AddBookmark} />
+                <PrivateRoute exact path='/logout' component={Logout} />
+                <PrivateRoute exact path='/mybookmarks' component={MyBookmarks} />
+                <PrivateRoute exact path='/addbookmark' component={AddBookmark} />
+
             </Layout>
         </AuthContextComponent>
     )
