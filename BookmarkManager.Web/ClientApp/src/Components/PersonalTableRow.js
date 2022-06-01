@@ -5,16 +5,16 @@ const PersonalTableRow = ({ bookmark, onDeleteClick, onUpdateClick }) => {
     const { url, title, id } = bookmark;
     const realTitle = title;
     const [editMode, setEditMode] = useState(false);
+    const [copyBookmark, setCopyBookmark] = useState(bookmark);
 
-    const onTextChange = e => {
-        bookmark.title = e.target.value;
-    }
+
     const updateClick = () => {
         setEditMode(false);
-
-        onUpdateClick(id, bookmark.title);
+        onUpdateClick(id, copyBookmark.title);
     }
-
+    const onTextChange = e => {
+        setCopyBookmark({ ...bookmark, title: e.target.value });
+    }
     return (
 
         <tr>

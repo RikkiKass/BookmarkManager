@@ -16,8 +16,8 @@ const MyBookmarks = () => {
 
     }, []);
 
+
     const onDeleteClick = async (id) => {
-        console.log(id);
         await axios.post('/api/home/deletebookmark', { id });
         getMyBookmarks();
     }
@@ -46,6 +46,7 @@ const MyBookmarks = () => {
                         key={b.id}
                         onDeleteClick={() => onDeleteClick(b.id)}
                         onUpdateClick={onUpdateClick}
+
                     />)}
 
                 </tbody>
